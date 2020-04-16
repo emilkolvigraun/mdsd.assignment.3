@@ -1,0 +1,80 @@
+grammar org.xtext.assingment2.Mathinterpreter with org.eclipse.xtext.common.Terminals
+
+generate mathinterpreter "http://www.xtext.org/assingment2/Mathinterpreter"
+
+Model:
+	mathexpression+=MathExpression*
+;
+
+MathExpression:
+	Function | DefineExpr
+;
+
+Function:
+	'result' description=STRING 'is' expression=(PMExpression|External)
+;
+
+DefineExpr:
+	'let' variables+=Variable ('and' variables+=Variable)* 'in' expression=(PMExpression|External) 'end'
+;
+
+Variable:
+	name=ID '=' expression=(PMExpression|External)
+;
+
+External:
+	'external.' name=ID '(' arguments+=Number (',' arguments+=Number)* ')'
+;
+
+
+PMExpression:
+    MDExpression ({PMExpression.left=current} operator=PlusMinus right=MDExpression)*
+;
+
+MDExpression:
+	PowExpression ({MDExpression.left=current} operator=MultiplyDivide right=PowExpression)*
+;
+
+PowExpression:
+	Primary ({PowExpression.left=current} operator=Power right=Primary)*
+;
+
+Power:
+	{Pow} '**'
+;
+
+PlusMinus:
+	{Plus} '+' | {Minus} '-'
+;
+
+MultiplyDivide:
+	{Multiply} '*' | {Divide} '/'
+;
+
+Primary:
+	Number | VariableName | PMParenthesis | DefParenthesis
+;
+
+VariableName:
+	name=ID
+;
+
+Number:
+	Positive | Negative
+;
+
+Positive:
+	value=INT
+;
+
+Negative:
+	'-'value=INT
+;
+
+PMParenthesis:
+	'(' expression=(PMExpression|External) ')' 
+;
+
+DefParenthesis:
+	'(' DefineExpr ')'
+;
