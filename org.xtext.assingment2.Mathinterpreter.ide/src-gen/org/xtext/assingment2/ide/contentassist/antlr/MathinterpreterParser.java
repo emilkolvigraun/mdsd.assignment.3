@@ -32,17 +32,16 @@ public class MathinterpreterParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MathinterpreterGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getMathExpressionAccess().getAlternatives(), "rule__MathExpression__Alternatives");
-			builder.put(grammarAccess.getFunctionAccess().getExpressionAlternatives_3_0(), "rule__Function__ExpressionAlternatives_3_0");
-			builder.put(grammarAccess.getDefineExprAccess().getExpressionAlternatives_4_0(), "rule__DefineExpr__ExpressionAlternatives_4_0");
-			builder.put(grammarAccess.getVariableAccess().getExpressionAlternatives_2_0(), "rule__Variable__ExpressionAlternatives_2_0");
+			builder.put(grammarAccess.getExternalAccess().getArgumentsAlternatives_3_0(), "rule__External__ArgumentsAlternatives_3_0");
+			builder.put(grammarAccess.getExternalAccess().getArgumentsAlternatives_4_1_0(), "rule__External__ArgumentsAlternatives_4_1_0");
 			builder.put(grammarAccess.getPlusMinusAccess().getAlternatives(), "rule__PlusMinus__Alternatives");
 			builder.put(grammarAccess.getMultiplyDivideAccess().getAlternatives(), "rule__MultiplyDivide__Alternatives");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getNumberAccess().getAlternatives(), "rule__Number__Alternatives");
-			builder.put(grammarAccess.getPMParenthesisAccess().getExpressionAlternatives_1_0(), "rule__PMParenthesis__ExpressionAlternatives_1_0");
 			builder.put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 			builder.put(grammarAccess.getDefineExprAccess().getGroup(), "rule__DefineExpr__Group__0");
-			builder.put(grammarAccess.getDefineExprAccess().getGroup_2(), "rule__DefineExpr__Group_2__0");
+			builder.put(grammarAccess.getDefineExprAccess().getGroup_0(), "rule__DefineExpr__Group_0__0");
+			builder.put(grammarAccess.getDefineExprAccess().getGroup_3(), "rule__DefineExpr__Group_3__0");
 			builder.put(grammarAccess.getVariableAccess().getGroup(), "rule__Variable__Group__0");
 			builder.put(grammarAccess.getExternalAccess().getGroup(), "rule__External__Group__0");
 			builder.put(grammarAccess.getExternalAccess().getGroup_4(), "rule__External__Group_4__0");
@@ -63,9 +62,10 @@ public class MathinterpreterParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getMathexpressionAssignment(), "rule__Model__MathexpressionAssignment");
 			builder.put(grammarAccess.getFunctionAccess().getDescriptionAssignment_1(), "rule__Function__DescriptionAssignment_1");
 			builder.put(grammarAccess.getFunctionAccess().getExpressionAssignment_3(), "rule__Function__ExpressionAssignment_3");
-			builder.put(grammarAccess.getDefineExprAccess().getVariablesAssignment_1(), "rule__DefineExpr__VariablesAssignment_1");
-			builder.put(grammarAccess.getDefineExprAccess().getVariablesAssignment_2_1(), "rule__DefineExpr__VariablesAssignment_2_1");
-			builder.put(grammarAccess.getDefineExprAccess().getExpressionAssignment_4(), "rule__DefineExpr__ExpressionAssignment_4");
+			builder.put(grammarAccess.getDefineExprAccess().getDescriptionAssignment_0_0(), "rule__DefineExpr__DescriptionAssignment_0_0");
+			builder.put(grammarAccess.getDefineExprAccess().getVariablesAssignment_2(), "rule__DefineExpr__VariablesAssignment_2");
+			builder.put(grammarAccess.getDefineExprAccess().getVariablesAssignment_3_1(), "rule__DefineExpr__VariablesAssignment_3_1");
+			builder.put(grammarAccess.getDefineExprAccess().getExpressionAssignment_5(), "rule__DefineExpr__ExpressionAssignment_5");
 			builder.put(grammarAccess.getVariableAccess().getNameAssignment_0(), "rule__Variable__NameAssignment_0");
 			builder.put(grammarAccess.getVariableAccess().getExpressionAssignment_2(), "rule__Variable__ExpressionAssignment_2");
 			builder.put(grammarAccess.getExternalAccess().getNameAssignment_1(), "rule__External__NameAssignment_1");

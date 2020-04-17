@@ -314,9 +314,20 @@ public class MathinterpreterPackageImpl extends EPackageImpl implements Mathinte
    * @generated
    */
   @Override
+  public EAttribute getMathExpression_Description()
+  {
+    return (EAttribute)mathExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getMathExpression_Expression()
   {
-    return (EReference)mathExpressionEClass.getEStructuralFeatures().get(0);
+    return (EReference)mathExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -328,17 +339,6 @@ public class MathinterpreterPackageImpl extends EPackageImpl implements Mathinte
   public EClass getFunction()
   {
     return functionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getFunction_Description()
-  {
-    return (EAttribute)functionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -728,10 +728,10 @@ public class MathinterpreterPackageImpl extends EPackageImpl implements Mathinte
     createEReference(modelEClass, MODEL__MATHEXPRESSION);
 
     mathExpressionEClass = createEClass(MATH_EXPRESSION);
+    createEAttribute(mathExpressionEClass, MATH_EXPRESSION__DESCRIPTION);
     createEReference(mathExpressionEClass, MATH_EXPRESSION__EXPRESSION);
 
     functionEClass = createEClass(FUNCTION);
-    createEAttribute(functionEClass, FUNCTION__DESCRIPTION);
 
     defineExprEClass = createEClass(DEFINE_EXPR);
     createEReference(defineExprEClass, DEFINE_EXPR__VARIABLES);
@@ -819,6 +819,7 @@ public class MathinterpreterPackageImpl extends EPackageImpl implements Mathinte
     functionEClass.getESuperTypes().add(this.getMathExpression());
     defineExprEClass.getESuperTypes().add(this.getMathExpression());
     defineExprEClass.getESuperTypes().add(this.getDefParenthesis());
+    externalEClass.getESuperTypes().add(this.getPrimary());
     mdExpressionEClass.getESuperTypes().add(this.getPMExpression());
     powExpressionEClass.getESuperTypes().add(this.getMDExpression());
     primaryEClass.getESuperTypes().add(this.getPowExpression());
@@ -839,21 +840,21 @@ public class MathinterpreterPackageImpl extends EPackageImpl implements Mathinte
     initEReference(getModel_Mathexpression(), this.getMathExpression(), null, "mathexpression", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mathExpressionEClass, MathExpression.class, "MathExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMathExpression_Expression(), ecorePackage.getEObject(), null, "expression", null, 0, 1, MathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMathExpression_Description(), ecorePackage.getEString(), "description", null, 0, 1, MathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMathExpression_Expression(), this.getPMExpression(), null, "expression", null, 0, 1, MathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFunction_Description(), ecorePackage.getEString(), "description", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(defineExprEClass, DefineExpr.class, "DefineExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDefineExpr_Variables(), this.getVariable(), null, "variables", null, 0, -1, DefineExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariable_Expression(), ecorePackage.getEObject(), null, "expression", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_Expression(), this.getPMExpression(), null, "expression", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(externalEClass, External.class, "External", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExternal_Name(), ecorePackage.getEString(), "name", null, 0, 1, External.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExternal_Arguments(), this.getNumber(), null, "arguments", null, 0, -1, External.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternal_Arguments(), this.getPrimary(), null, "arguments", null, 0, -1, External.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pmExpressionEClass, PMExpression.class, "PMExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPMExpression_Left(), this.getPMExpression(), null, "left", null, 0, 1, PMExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -883,7 +884,7 @@ public class MathinterpreterPackageImpl extends EPackageImpl implements Mathinte
     initEClass(negativeEClass, Negative.class, "Negative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(pmParenthesisEClass, PMParenthesis.class, "PMParenthesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPMParenthesis_Expression(), ecorePackage.getEObject(), null, "expression", null, 0, 1, PMParenthesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPMParenthesis_Expression(), this.getPMExpression(), null, "expression", null, 0, 1, PMParenthesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(defParenthesisEClass, DefParenthesis.class, "DefParenthesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

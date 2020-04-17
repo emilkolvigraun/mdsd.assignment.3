@@ -7,25 +7,24 @@
         eType="#//MathExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MathExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PMExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//MathExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//MathExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="DefineExpr" eSuperTypes="#//MathExpression #//DefParenthesis">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PMExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="External">
+  <eClassifiers xsi:type="ecore:EClass" name="External" eSuperTypes="#//Primary">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
-        eType="#//Number" containment="true"/>
+        eType="#//Primary" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PMExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//PMExpression"
@@ -50,7 +49,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Positive" eSuperTypes="#//Number"/>
   <eClassifiers xsi:type="ecore:EClass" name="Negative" eSuperTypes="#//Number"/>
   <eClassifiers xsi:type="ecore:EClass" name="PMParenthesis" eSuperTypes="#//Primary">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//PMExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefParenthesis" eSuperTypes="#//Primary"/>

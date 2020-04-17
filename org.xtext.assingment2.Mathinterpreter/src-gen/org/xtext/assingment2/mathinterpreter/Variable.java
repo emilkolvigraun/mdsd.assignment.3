@@ -51,12 +51,12 @@ public interface Variable extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(EObject)
+   * @see #setExpression(PMExpression)
    * @see org.xtext.assingment2.mathinterpreter.MathinterpreterPackage#getVariable_Expression()
    * @model containment="true"
    * @generated
    */
-  EObject getExpression();
+  PMExpression getExpression();
 
   /**
    * Sets the value of the '{@link org.xtext.assingment2.mathinterpreter.Variable#getExpression <em>Expression</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface Variable extends EObject
    * @see #getExpression()
    * @generated
    */
-  void setExpression(EObject value);
+  void setExpression(PMExpression value);
 
 } // Variable

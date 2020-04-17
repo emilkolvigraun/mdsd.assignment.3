@@ -7,7 +7,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -15,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.assingment2.mathinterpreter.MathExpression;
 import org.xtext.assingment2.mathinterpreter.MathinterpreterPackage;
+import org.xtext.assingment2.mathinterpreter.PMExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +24,7 @@ import org.xtext.assingment2.mathinterpreter.MathinterpreterPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.assingment2.mathinterpreter.impl.MathExpressionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.xtext.assingment2.mathinterpreter.impl.MathExpressionImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
@@ -32,6 +33,26 @@ import org.xtext.assingment2.mathinterpreter.MathinterpreterPackage;
 public class MathExpressionImpl extends MinimalEObjectImpl.Container implements MathExpression
 {
   /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -39,7 +60,7 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected EObject expression;
+  protected PMExpression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,7 +89,32 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public EObject getExpression()
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MathinterpreterPackage.MATH_EXPRESSION__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PMExpression getExpression()
   {
     return expression;
   }
@@ -78,9 +124,9 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(EObject newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(PMExpression newExpression, NotificationChain msgs)
   {
-    EObject oldExpression = expression;
+    PMExpression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -96,7 +142,7 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public void setExpression(EObject newExpression)
+  public void setExpression(PMExpression newExpression)
   {
     if (newExpression != expression)
     {
@@ -138,6 +184,8 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MathinterpreterPackage.MATH_EXPRESSION__DESCRIPTION:
+        return getDescription();
       case MathinterpreterPackage.MATH_EXPRESSION__EXPRESSION:
         return getExpression();
     }
@@ -154,8 +202,11 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MathinterpreterPackage.MATH_EXPRESSION__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
       case MathinterpreterPackage.MATH_EXPRESSION__EXPRESSION:
-        setExpression((EObject)newValue);
+        setExpression((PMExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,8 +222,11 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MathinterpreterPackage.MATH_EXPRESSION__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
       case MathinterpreterPackage.MATH_EXPRESSION__EXPRESSION:
-        setExpression((EObject)null);
+        setExpression((PMExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -188,10 +242,29 @@ public class MathExpressionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MathinterpreterPackage.MATH_EXPRESSION__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case MathinterpreterPackage.MATH_EXPRESSION__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (description: ");
+    result.append(description);
+    result.append(')');
+    return result.toString();
   }
 
 } //MathExpressionImpl

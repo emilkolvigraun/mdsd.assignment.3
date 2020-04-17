@@ -11,19 +11,19 @@ MathExpression:
 ;
 
 Function:
-	'result' description=STRING 'is' expression=(PMExpression|External)
+	'result' description=STRING 'is' expression=PMExpression
 ;
 
 DefineExpr:
-	'let' variables+=Variable ('and' variables+=Variable)* 'in' expression=(PMExpression|External) 'end'
+	(description=STRING 'as')? 'let' variables+=Variable ('and' variables+=Variable)* 'in' expression=PMExpression 'end'
 ;
 
 Variable:
-	name=ID '=' expression=(PMExpression|External)
+	name=ID '=' expression=PMExpression
 ;
 
 External:
-	'external.' name=ID '(' arguments+=Number (',' arguments+=Number)* ')'
+	'external.' name=ID '(' arguments+=(VariableName|Number) (',' arguments+=(VariableName|Number))* ')'
 ;
 
 
@@ -52,7 +52,7 @@ MultiplyDivide:
 ;
 
 Primary:
-	Number | VariableName | PMParenthesis | DefParenthesis
+	Number | VariableName | PMParenthesis | DefParenthesis | External
 ;
 
 VariableName:
@@ -72,7 +72,7 @@ Negative:
 ;
 
 PMParenthesis:
-	'(' expression=(PMExpression|External) ')' 
+	'(' expression=PMExpression ')' 
 ;
 
 DefParenthesis:

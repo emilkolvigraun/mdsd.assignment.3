@@ -176,39 +176,21 @@ ruleFunction returns [EObject current=null]
 		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFunctionAccess().getExpressionPMExpressionParserRuleCall_3_0_0());
+				{
+					newCompositeNode(grammarAccess.getFunctionAccess().getExpressionPMExpressionParserRuleCall_3_0());
+				}
+				lv_expression_3_0=rulePMExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFunctionRule());
 					}
-					lv_expression_3_1=rulePMExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFunctionRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_3_1,
-							"org.xtext.assingment2.Mathinterpreter.PMExpression");
-						afterParserOrEnumRuleCall();
-					}
-					    |
-					{
-						newCompositeNode(grammarAccess.getFunctionAccess().getExpressionExternalParserRuleCall_3_0_1());
-					}
-					lv_expression_3_2=ruleExternal
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFunctionRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_3_2,
-							"org.xtext.assingment2.Mathinterpreter.External");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"expression",
+						lv_expression_3_0,
+						"org.xtext.assingment2.Mathinterpreter.PMExpression");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
 	)
@@ -230,16 +212,40 @@ ruleDefineExpr returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='let'
+		(
+			(
+				(
+					lv_description_0_0=RULE_STRING
+					{
+						newLeafNode(lv_description_0_0, grammarAccess.getDefineExprAccess().getDescriptionSTRINGTerminalRuleCall_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDefineExprRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"description",
+							lv_description_0_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			otherlv_1='as'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getDefineExprAccess().getAsKeyword_0_1());
+			}
+		)?
+		otherlv_2='let'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getDefineExprAccess().getLetKeyword_0());
+			newLeafNode(otherlv_2, grammarAccess.getDefineExprAccess().getLetKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDefineExprAccess().getVariablesVariableParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getDefineExprAccess().getVariablesVariableParserRuleCall_2_0());
 				}
-				lv_variables_1_0=ruleVariable
+				lv_variables_3_0=ruleVariable
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDefineExprRule());
@@ -247,23 +253,23 @@ ruleDefineExpr returns [EObject current=null]
 					add(
 						$current,
 						"variables",
-						lv_variables_1_0,
+						lv_variables_3_0,
 						"org.xtext.assingment2.Mathinterpreter.Variable");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_2='and'
+			otherlv_4='and'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getDefineExprAccess().getAndKeyword_2_0());
+				newLeafNode(otherlv_4, grammarAccess.getDefineExprAccess().getAndKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDefineExprAccess().getVariablesVariableParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getDefineExprAccess().getVariablesVariableParserRuleCall_3_1_0());
 					}
-					lv_variables_3_0=ruleVariable
+					lv_variables_5_0=ruleVariable
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDefineExprRule());
@@ -271,57 +277,39 @@ ruleDefineExpr returns [EObject current=null]
 						add(
 							$current,
 							"variables",
-							lv_variables_3_0,
+							lv_variables_5_0,
 							"org.xtext.assingment2.Mathinterpreter.Variable");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_4='in'
+		otherlv_6='in'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDefineExprAccess().getInKeyword_3());
+			newLeafNode(otherlv_6, grammarAccess.getDefineExprAccess().getInKeyword_4());
 		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDefineExprAccess().getExpressionPMExpressionParserRuleCall_4_0_0());
+				{
+					newCompositeNode(grammarAccess.getDefineExprAccess().getExpressionPMExpressionParserRuleCall_5_0());
+				}
+				lv_expression_7_0=rulePMExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDefineExprRule());
 					}
-					lv_expression_5_1=rulePMExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDefineExprRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_5_1,
-							"org.xtext.assingment2.Mathinterpreter.PMExpression");
-						afterParserOrEnumRuleCall();
-					}
-					    |
-					{
-						newCompositeNode(grammarAccess.getDefineExprAccess().getExpressionExternalParserRuleCall_4_0_1());
-					}
-					lv_expression_5_2=ruleExternal
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDefineExprRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_5_2,
-							"org.xtext.assingment2.Mathinterpreter.External");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"expression",
+						lv_expression_7_0,
+						"org.xtext.assingment2.Mathinterpreter.PMExpression");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
-		otherlv_6='end'
+		otherlv_8='end'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDefineExprAccess().getEndKeyword_5());
+			newLeafNode(otherlv_8, grammarAccess.getDefineExprAccess().getEndKeyword_6());
 		}
 	)
 ;
@@ -366,39 +354,21 @@ ruleVariable returns [EObject current=null]
 		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getVariableAccess().getExpressionPMExpressionParserRuleCall_2_0_0());
+				{
+					newCompositeNode(grammarAccess.getVariableAccess().getExpressionPMExpressionParserRuleCall_2_0());
+				}
+				lv_expression_2_0=rulePMExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getVariableRule());
 					}
-					lv_expression_2_1=rulePMExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVariableRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_2_1,
-							"org.xtext.assingment2.Mathinterpreter.PMExpression");
-						afterParserOrEnumRuleCall();
-					}
-					    |
-					{
-						newCompositeNode(grammarAccess.getVariableAccess().getExpressionExternalParserRuleCall_2_0_1());
-					}
-					lv_expression_2_2=ruleExternal
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVariableRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_2_2,
-							"org.xtext.assingment2.Mathinterpreter.External");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"expression",
+						lv_expression_2_0,
+						"org.xtext.assingment2.Mathinterpreter.PMExpression");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
 	)
@@ -448,21 +418,39 @@ ruleExternal returns [EObject current=null]
 		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getExternalAccess().getArgumentsNumberParserRuleCall_3_0());
-				}
-				lv_arguments_3_0=ruleNumber
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getExternalRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getExternalAccess().getArgumentsVariableNameParserRuleCall_3_0_0());
 					}
-					add(
-						$current,
-						"arguments",
-						lv_arguments_3_0,
-						"org.xtext.assingment2.Mathinterpreter.Number");
-					afterParserOrEnumRuleCall();
-				}
+					lv_arguments_3_1=ruleVariableName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExternalRule());
+						}
+						add(
+							$current,
+							"arguments",
+							lv_arguments_3_1,
+							"org.xtext.assingment2.Mathinterpreter.VariableName");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getExternalAccess().getArgumentsNumberParserRuleCall_3_0_1());
+					}
+					lv_arguments_3_2=ruleNumber
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExternalRule());
+						}
+						add(
+							$current,
+							"arguments",
+							lv_arguments_3_2,
+							"org.xtext.assingment2.Mathinterpreter.Number");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 		(
@@ -472,21 +460,39 @@ ruleExternal returns [EObject current=null]
 			}
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getExternalAccess().getArgumentsNumberParserRuleCall_4_1_0());
-					}
-					lv_arguments_5_0=ruleNumber
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExternalRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getExternalAccess().getArgumentsVariableNameParserRuleCall_4_1_0_0());
 						}
-						add(
-							$current,
-							"arguments",
-							lv_arguments_5_0,
-							"org.xtext.assingment2.Mathinterpreter.Number");
-						afterParserOrEnumRuleCall();
-					}
+						lv_arguments_5_1=ruleVariableName
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExternalRule());
+							}
+							add(
+								$current,
+								"arguments",
+								lv_arguments_5_1,
+								"org.xtext.assingment2.Mathinterpreter.VariableName");
+							afterParserOrEnumRuleCall();
+						}
+						    |
+						{
+							newCompositeNode(grammarAccess.getExternalAccess().getArgumentsNumberParserRuleCall_4_1_0_1());
+						}
+						lv_arguments_5_2=ruleNumber
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExternalRule());
+							}
+							add(
+								$current,
+								"arguments",
+								lv_arguments_5_2,
+								"org.xtext.assingment2.Mathinterpreter.Number");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
 		)*
@@ -892,6 +898,15 @@ rulePrimary returns [EObject current=null]
 			$current = $this_DefParenthesis_3.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPrimaryAccess().getExternalParserRuleCall_4());
+		}
+		this_External_4=ruleExternal
+		{
+			$current = $this_External_4.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1064,39 +1079,21 @@ rulePMParenthesis returns [EObject current=null]
 		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getPMParenthesisAccess().getExpressionPMExpressionParserRuleCall_1_0_0());
+				{
+					newCompositeNode(grammarAccess.getPMParenthesisAccess().getExpressionPMExpressionParserRuleCall_1_0());
+				}
+				lv_expression_1_0=rulePMExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPMParenthesisRule());
 					}
-					lv_expression_1_1=rulePMExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPMParenthesisRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_1_1,
-							"org.xtext.assingment2.Mathinterpreter.PMExpression");
-						afterParserOrEnumRuleCall();
-					}
-					    |
-					{
-						newCompositeNode(grammarAccess.getPMParenthesisAccess().getExpressionExternalParserRuleCall_1_0_1());
-					}
-					lv_expression_1_2=ruleExternal
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPMParenthesisRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_1_2,
-							"org.xtext.assingment2.Mathinterpreter.External");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"expression",
+						lv_expression_1_0,
+						"org.xtext.assingment2.Mathinterpreter.PMExpression");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
 		otherlv_2=')'

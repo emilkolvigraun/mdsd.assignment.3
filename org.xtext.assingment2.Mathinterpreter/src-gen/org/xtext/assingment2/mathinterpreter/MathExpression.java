@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.assingment2.mathinterpreter.MathExpression#getDescription <em>Description</em>}</li>
  *   <li>{@link org.xtext.assingment2.mathinterpreter.MathExpression#getExpression <em>Expression</em>}</li>
  * </ul>
  *
@@ -24,16 +25,38 @@ import org.eclipse.emf.ecore.EObject;
 public interface MathExpression extends EObject
 {
   /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see org.xtext.assingment2.mathinterpreter.MathinterpreterPackage#getMathExpression_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link org.xtext.assingment2.mathinterpreter.MathExpression#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
+
+  /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(EObject)
+   * @see #setExpression(PMExpression)
    * @see org.xtext.assingment2.mathinterpreter.MathinterpreterPackage#getMathExpression_Expression()
    * @model containment="true"
    * @generated
    */
-  EObject getExpression();
+  PMExpression getExpression();
 
   /**
    * Sets the value of the '{@link org.xtext.assingment2.mathinterpreter.MathExpression#getExpression <em>Expression</em>}' containment reference.
@@ -43,6 +66,6 @@ public interface MathExpression extends EObject
    * @see #getExpression()
    * @generated
    */
-  void setExpression(EObject value);
+  void setExpression(PMExpression value);
 
 } // MathExpression

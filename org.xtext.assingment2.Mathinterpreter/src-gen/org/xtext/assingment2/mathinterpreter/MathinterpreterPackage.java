@@ -96,13 +96,22 @@ public interface MathinterpreterPackage extends EPackage
   int MATH_EXPRESSION = 1;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATH_EXPRESSION__DESCRIPTION = 0;
+
+  /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MATH_EXPRESSION__EXPRESSION = 0;
+  int MATH_EXPRESSION__EXPRESSION = 1;
 
   /**
    * The number of structural features of the '<em>Math Expression</em>' class.
@@ -111,7 +120,7 @@ public interface MathinterpreterPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MATH_EXPRESSION_FEATURE_COUNT = 1;
+  int MATH_EXPRESSION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.FunctionImpl <em>Function</em>}' class.
@@ -124,6 +133,15 @@ public interface MathinterpreterPackage extends EPackage
   int FUNCTION = 2;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__DESCRIPTION = MATH_EXPRESSION__DESCRIPTION;
+
+  /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -133,22 +151,13 @@ public interface MathinterpreterPackage extends EPackage
   int FUNCTION__EXPRESSION = MATH_EXPRESSION__EXPRESSION;
 
   /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__DESCRIPTION = MATH_EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
    * The number of structural features of the '<em>Function</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_FEATURE_COUNT = MATH_EXPRESSION_FEATURE_COUNT + 1;
+  int FUNCTION_FEATURE_COUNT = MATH_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.DefineExprImpl <em>Define Expr</em>}' class.
@@ -159,6 +168,15 @@ public interface MathinterpreterPackage extends EPackage
    * @generated
    */
   int DEFINE_EXPR = 3;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_EXPR__DESCRIPTION = MATH_EXPRESSION__DESCRIPTION;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -250,43 +268,6 @@ public interface MathinterpreterPackage extends EPackage
    * @ordered
    */
   int VARIABLE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.ExternalImpl <em>External</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.assingment2.mathinterpreter.impl.ExternalImpl
-   * @see org.xtext.assingment2.mathinterpreter.impl.MathinterpreterPackageImpl#getExternal()
-   * @generated
-   */
-  int EXTERNAL = 5;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTERNAL__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTERNAL__ARGUMENTS = 1;
-
-  /**
-   * The number of structural features of the '<em>External</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTERNAL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.PMExpressionImpl <em>PM Expression</em>}' class.
@@ -427,6 +408,116 @@ public interface MathinterpreterPackage extends EPackage
   int POW_EXPRESSION_FEATURE_COUNT = MD_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.PrimaryImpl <em>Primary</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.assingment2.mathinterpreter.impl.PrimaryImpl
+   * @see org.xtext.assingment2.mathinterpreter.impl.MathinterpreterPackageImpl#getPrimary()
+   * @generated
+   */
+  int PRIMARY = 12;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY__LEFT = POW_EXPRESSION__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY__OPERATOR = POW_EXPRESSION__OPERATOR;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY__RIGHT = POW_EXPRESSION__RIGHT;
+
+  /**
+   * The number of structural features of the '<em>Primary</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_FEATURE_COUNT = POW_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.ExternalImpl <em>External</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.assingment2.mathinterpreter.impl.ExternalImpl
+   * @see org.xtext.assingment2.mathinterpreter.impl.MathinterpreterPackageImpl#getExternal()
+   * @generated
+   */
+  int EXTERNAL = 5;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL__LEFT = PRIMARY__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL__OPERATOR = PRIMARY__OPERATOR;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL__RIGHT = PRIMARY__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL__NAME = PRIMARY_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL__ARGUMENTS = PRIMARY_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>External</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_FEATURE_COUNT = PRIMARY_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.PowerImpl <em>Power</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -482,52 +573,6 @@ public interface MathinterpreterPackage extends EPackage
    * @ordered
    */
   int MULTIPLY_DIVIDE_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.PrimaryImpl <em>Primary</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.assingment2.mathinterpreter.impl.PrimaryImpl
-   * @see org.xtext.assingment2.mathinterpreter.impl.MathinterpreterPackageImpl#getPrimary()
-   * @generated
-   */
-  int PRIMARY = 12;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY__LEFT = POW_EXPRESSION__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY__OPERATOR = POW_EXPRESSION__OPERATOR;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY__RIGHT = POW_EXPRESSION__RIGHT;
-
-  /**
-   * The number of structural features of the '<em>Primary</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_FEATURE_COUNT = POW_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.assingment2.mathinterpreter.impl.VariableNameImpl <em>Variable Name</em>}' class.
@@ -978,6 +1023,17 @@ public interface MathinterpreterPackage extends EPackage
   EClass getMathExpression();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.assingment2.mathinterpreter.MathExpression#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.xtext.assingment2.mathinterpreter.MathExpression#getDescription()
+   * @see #getMathExpression()
+   * @generated
+   */
+  EAttribute getMathExpression_Description();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.assingment2.mathinterpreter.MathExpression#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -997,17 +1053,6 @@ public interface MathinterpreterPackage extends EPackage
    * @generated
    */
   EClass getFunction();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.assingment2.mathinterpreter.Function#getDescription <em>Description</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Description</em>'.
-   * @see org.xtext.assingment2.mathinterpreter.Function#getDescription()
-   * @see #getFunction()
-   * @generated
-   */
-  EAttribute getFunction_Description();
 
   /**
    * Returns the meta object for class '{@link org.xtext.assingment2.mathinterpreter.DefineExpr <em>Define Expr</em>}'.
@@ -1392,6 +1437,14 @@ public interface MathinterpreterPackage extends EPackage
     EClass MATH_EXPRESSION = eINSTANCE.getMathExpression();
 
     /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MATH_EXPRESSION__DESCRIPTION = eINSTANCE.getMathExpression_Description();
+
+    /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1408,14 +1461,6 @@ public interface MathinterpreterPackage extends EPackage
      * @generated
      */
     EClass FUNCTION = eINSTANCE.getFunction();
-
-    /**
-     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FUNCTION__DESCRIPTION = eINSTANCE.getFunction_Description();
 
     /**
      * The meta object literal for the '{@link org.xtext.assingment2.mathinterpreter.impl.DefineExprImpl <em>Define Expr</em>}' class.

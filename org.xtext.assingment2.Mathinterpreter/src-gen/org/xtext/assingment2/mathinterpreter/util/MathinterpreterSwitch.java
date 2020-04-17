@@ -142,6 +142,10 @@ public class MathinterpreterSwitch<T> extends Switch<T>
       {
         External external = (External)theEObject;
         T result = caseExternal(external);
+        if (result == null) result = casePrimary(external);
+        if (result == null) result = casePowExpression(external);
+        if (result == null) result = caseMDExpression(external);
+        if (result == null) result = casePMExpression(external);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

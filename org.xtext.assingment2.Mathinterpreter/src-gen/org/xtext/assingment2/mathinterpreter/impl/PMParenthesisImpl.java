@@ -7,12 +7,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.assingment2.mathinterpreter.MathinterpreterPackage;
+import org.xtext.assingment2.mathinterpreter.PMExpression;
 import org.xtext.assingment2.mathinterpreter.PMParenthesis;
 
 /**
@@ -38,7 +38,7 @@ public class PMParenthesisImpl extends PrimaryImpl implements PMParenthesis
    * @generated
    * @ordered
    */
-  protected EObject expression;
+  protected PMExpression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class PMParenthesisImpl extends PrimaryImpl implements PMParenthesis
    * @generated
    */
   @Override
-  public EObject getExpression()
+  public PMExpression getExpression()
   {
     return expression;
   }
@@ -77,9 +77,9 @@ public class PMParenthesisImpl extends PrimaryImpl implements PMParenthesis
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(EObject newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(PMExpression newExpression, NotificationChain msgs)
   {
-    EObject oldExpression = expression;
+    PMExpression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class PMParenthesisImpl extends PrimaryImpl implements PMParenthesis
    * @generated
    */
   @Override
-  public void setExpression(EObject newExpression)
+  public void setExpression(PMExpression newExpression)
   {
     if (newExpression != expression)
     {
@@ -154,7 +154,7 @@ public class PMParenthesisImpl extends PrimaryImpl implements PMParenthesis
     switch (featureID)
     {
       case MathinterpreterPackage.PM_PARENTHESIS__EXPRESSION:
-        setExpression((EObject)newValue);
+        setExpression((PMExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class PMParenthesisImpl extends PrimaryImpl implements PMParenthesis
     switch (featureID)
     {
       case MathinterpreterPackage.PM_PARENTHESIS__EXPRESSION:
-        setExpression((EObject)null);
+        setExpression((PMExpression)null);
         return;
     }
     super.eUnset(featureID);

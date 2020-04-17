@@ -56,7 +56,8 @@ class MathinterpreterGenerator extends AbstractGenerator {
 		public class Main {	
 			
 			public static void main(String args[]) {
-				new MathComputation().compute();
+				/* implement Externals */
+				// new MathComputation( ... ).compute();
 			}
 		}
 		
@@ -84,14 +85,13 @@ class MathinterpreterGenerator extends AbstractGenerator {
 	
 	def List<String> getLetVarNames(){
 		var _r = new ArrayList<String>()
-		for (Variable variable : letVars) _r.add(variable.name)
+		for (Variable variable : letVars) _r.add(variable.name.replaceAll("\\s+",""))
 		_r
 	}
 	
 	def boolean letVarsContain(List<String> input){
 		val letvarnames = getLetVarNames()
-	    for (String str : input)
-	    	if (!letvarnames.contains(str)) return false
+	    for (String str : input) if (!letvarnames.contains(str)) return false 
 	    true
 	}
 	
@@ -109,45 +109,33 @@ class MathinterpreterGenerator extends AbstractGenerator {
 	} 
 	
 	def dispatch String compile(DefineExpr func){
-		var rString = ''''''
-		
-		val expression = func.expression.compile
-		
-		if (expression.contains("System.out.println")) {
-			letVars.clear()
-			return expression
-		}	
-		val names = getLetVarNames()
-		
-		for (Variable variable : func.variables) 
-			if (names.contains(variable.name)) 
-				letVars.set(names.indexOf(variable.name), variable)
-			else letVars.add(variable)
-			
-		val variableNames = expression.replaceAll("\\s+","").replaceAll("\\d","").split("[-+*/]")
-		if (variableNames.letVarsContain) {
-			rString = '''
-			«FOR variable : letVars»
-			«IF variableNames.contains(variable.name)»
+		var variables = func.variables
+		var expression = func.expression
+		while (expression instanceof DefineExpr) {
+			variables.addAll(expression.variables)
+			expression = expression.expression
+		}
+		if (variables.size() > 0) {
+			return '''
+			«FOR variable : variables»
 			«variable.define»
-			«ENDIF»
 			«ENDFOR»
-			System.out.println("«expression»" + " = " + («expression»));
+			System.out.println("«func.description» -> «expression.compile»" + " = " + («expression.compile»));
 			
 			'''
-			
-			letVars.clear() 
-			return rString
 		}
-		
-		rString
+		''''''
 	}
 	
 	def dispatch String compile(External external){
 		external.name
 		var args = ""
-		for (Number argument : external.arguments) {
-			args += argument.value + ", "
+		for (i : 0 ..< external.arguments.length) {
+		    val current = external.arguments.get(i)
+		    switch (current) {
+		    	Number: args += current.value + ", "
+		    	VariableName: args += current.name + ", "
+		    }
 		}
 		'''externals.«external.name»(«args.substring(0, args.length-2)»)'''
 	}
@@ -169,7 +157,7 @@ class MathinterpreterGenerator extends AbstractGenerator {
 	}
 	
 	def dispatch String compile(PowExpression expression){
-		'''Math.pow(«expression.left.compile», «expression.right.compile»)'''
+		'''(int) Math.pow(«expression.left.compile», «expression.right.compile»)'''
 	}
 	
 	def dispatch String compile(Primary primary) {primary.compile}

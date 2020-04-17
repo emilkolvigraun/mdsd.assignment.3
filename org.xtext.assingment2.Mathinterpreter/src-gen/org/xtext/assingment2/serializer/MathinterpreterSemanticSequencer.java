@@ -118,7 +118,7 @@ public class MathinterpreterSemanticSequencer extends AbstractDelegatingSemantic
 	 *     DefParenthesis returns DefineExpr
 	 *
 	 * Constraint:
-	 *     (variables+=Variable variables+=Variable* (expression=PMExpression | expression=External))
+	 *     (description=STRING? variables+=Variable variables+=Variable* expression=PMExpression)
 	 */
 	protected void sequence_DefineExpr(ISerializationContext context, DefineExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -128,9 +128,16 @@ public class MathinterpreterSemanticSequencer extends AbstractDelegatingSemantic
 	/**
 	 * Contexts:
 	 *     External returns External
+	 *     PMExpression returns External
+	 *     PMExpression.PMExpression_1_0 returns External
+	 *     MDExpression returns External
+	 *     MDExpression.MDExpression_1_0 returns External
+	 *     PowExpression returns External
+	 *     PowExpression.PowExpression_1_0 returns External
+	 *     Primary returns External
 	 *
 	 * Constraint:
-	 *     (name=ID arguments+=Number arguments+=Number*)
+	 *     (name=ID (arguments+=VariableName | arguments+=Number) arguments+=VariableName? (arguments+=Number? arguments+=VariableName?)*)
 	 */
 	protected void sequence_External(ISerializationContext context, External semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -143,10 +150,19 @@ public class MathinterpreterSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Function returns Function
 	 *
 	 * Constraint:
-	 *     (description=STRING (expression=PMExpression | expression=External))
+	 *     (description=STRING expression=PMExpression)
 	 */
 	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MathinterpreterPackage.Literals.MATH_EXPRESSION__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MathinterpreterPackage.Literals.MATH_EXPRESSION__DESCRIPTION));
+			if (transientValues.isValueTransient(semanticObject, MathinterpreterPackage.Literals.MATH_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MathinterpreterPackage.Literals.MATH_EXPRESSION__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFunctionAccess().getDescriptionSTRINGTerminalRuleCall_1_0(), semanticObject.getDescription());
+		feeder.accept(grammarAccess.getFunctionAccess().getExpressionPMExpressionParserRuleCall_3_0(), semanticObject.getExpression());
+		feeder.finish();
 	}
 	
 	
@@ -276,10 +292,16 @@ public class MathinterpreterSemanticSequencer extends AbstractDelegatingSemantic
 	 *     PMParenthesis returns PMParenthesis
 	 *
 	 * Constraint:
-	 *     (expression=PMExpression | expression=External)
+	 *     expression=PMExpression
 	 */
 	protected void sequence_PMParenthesis(ISerializationContext context, PMParenthesis semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MathinterpreterPackage.Literals.PM_PARENTHESIS__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MathinterpreterPackage.Literals.PM_PARENTHESIS__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPMParenthesisAccess().getExpressionPMExpressionParserRuleCall_1_0(), semanticObject.getExpression());
+		feeder.finish();
 	}
 	
 	
@@ -404,10 +426,19 @@ public class MathinterpreterSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (name=ID (expression=PMExpression | expression=External))
+	 *     (name=ID expression=PMExpression)
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MathinterpreterPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MathinterpreterPackage.Literals.VARIABLE__NAME));
+			if (transientValues.isValueTransient(semanticObject, MathinterpreterPackage.Literals.VARIABLE__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MathinterpreterPackage.Literals.VARIABLE__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVariableAccess().getExpressionPMExpressionParserRuleCall_2_0(), semanticObject.getExpression());
+		feeder.finish();
 	}
 	
 	

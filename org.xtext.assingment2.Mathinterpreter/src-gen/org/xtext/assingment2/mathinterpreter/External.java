@@ -5,8 +5,6 @@ package org.xtext.assingment2.mathinterpreter;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>External</b></em>'.
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface External extends EObject
+public interface External extends Primary
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -50,7 +48,7 @@ public interface External extends EObject
 
   /**
    * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.assingment2.mathinterpreter.Number}.
+   * The list contents are of type {@link org.xtext.assingment2.mathinterpreter.Primary}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Arguments</em>' containment reference list.
@@ -58,6 +56,6 @@ public interface External extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<org.xtext.assingment2.mathinterpreter.Number> getArguments();
+  EList<Primary> getArguments();
 
 } // External

@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.assingment2.mathinterpreter.External;
 import org.xtext.assingment2.mathinterpreter.MathinterpreterPackage;
+import org.xtext.assingment2.mathinterpreter.Primary;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ import org.xtext.assingment2.mathinterpreter.MathinterpreterPackage;
  *
  * @generated
  */
-public class ExternalImpl extends MinimalEObjectImpl.Container implements External
+public class ExternalImpl extends PrimaryImpl implements External
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -66,7 +66,7 @@ public class ExternalImpl extends MinimalEObjectImpl.Container implements Extern
    * @generated
    * @ordered
    */
-  protected EList<org.xtext.assingment2.mathinterpreter.Number> arguments;
+  protected EList<Primary> arguments;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,11 +120,11 @@ public class ExternalImpl extends MinimalEObjectImpl.Container implements Extern
    * @generated
    */
   @Override
-  public EList<org.xtext.assingment2.mathinterpreter.Number> getArguments()
+  public EList<Primary> getArguments()
   {
     if (arguments == null)
     {
-      arguments = new EObjectContainmentEList<org.xtext.assingment2.mathinterpreter.Number>(org.xtext.assingment2.mathinterpreter.Number.class, this, MathinterpreterPackage.EXTERNAL__ARGUMENTS);
+      arguments = new EObjectContainmentEList<Primary>(Primary.class, this, MathinterpreterPackage.EXTERNAL__ARGUMENTS);
     }
     return arguments;
   }
@@ -179,7 +179,7 @@ public class ExternalImpl extends MinimalEObjectImpl.Container implements Extern
         return;
       case MathinterpreterPackage.EXTERNAL__ARGUMENTS:
         getArguments().clear();
-        getArguments().addAll((Collection<? extends org.xtext.assingment2.mathinterpreter.Number>)newValue);
+        getArguments().addAll((Collection<? extends Primary>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
