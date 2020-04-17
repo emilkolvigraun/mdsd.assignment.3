@@ -34,12 +34,11 @@ import org.xtext.assingment2.mathinterpreter.External
  */
 class MathinterpreterGenerator extends AbstractGenerator {
 	
+	// used to only initialize a variable of the same name once
 	List<String> initVars
-	List<Variable> letVars
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		initVars = new ArrayList<String>()
-		letVars = new ArrayList<Variable>()
 		
 		val expressions = resource.allContents.toIterable.filter(MathExpression)
 		
@@ -82,18 +81,6 @@ class MathinterpreterGenerator extends AbstractGenerator {
 			}
 		}
 		'''	
-	
-	def List<String> getLetVarNames(){
-		var _r = new ArrayList<String>()
-		for (Variable variable : letVars) _r.add(variable.name.replaceAll("\\s+",""))
-		_r
-	}
-	
-	def boolean letVarsContain(List<String> input){
-		val letvarnames = getLetVarNames()
-	    for (String str : input) if (!letvarnames.contains(str)) return false 
-	    true
-	}
 	
 	def String define(Variable variable){
 		var compiled = variable.compile
